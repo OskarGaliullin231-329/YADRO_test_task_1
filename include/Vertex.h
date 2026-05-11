@@ -2,13 +2,14 @@
 #define VERTEX_H_
 
 #include <map>
-#include <set>
 
 class Vertex {
 public:
     Vertex(int id);
     void addNeighbour(Vertex&);
+    Vertex* getNeighbourPtr(int);
     int getID();
+    ~Vertex();
 
 private:
     void addNeighbour(Vertex*);
@@ -23,12 +24,13 @@ public:
     int vertexNum();
     bool addVertex(int, Vertex*);
     bool removeVertex(int);
-    Vertex* getVertex(int);
+    Vertex* getVertexPtr(int);
 
 private:
     VertexManager() {}
     VertexManager(const VertexManager&) = delete;
     void operator = (const VertexManager&) = delete;
+
     std::map <int, Vertex*> _vrtxs_ptrs;
 };
 

@@ -1,4 +1,3 @@
 #include "../include/Strategy.h"
 
-#include <string>
-
+void AliceStrategy::perform() {}

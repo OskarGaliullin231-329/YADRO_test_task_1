@@ -6,8 +6,12 @@
 class Room: public Vertex {
 public:
     Room(int, int, int, int, int);
-    void visit() { _visited = true; }
-    void unvisit() { _visited = false; }
+    
+    int&  iron()    { return _iron; }
+    int&  gold()    { return _gold; }
+    int&  gems()    { return _gems; }
+    int&  exp()     { return _exp; }
+    bool& visited() { return _visited; }
 
 private:
     int _iron;

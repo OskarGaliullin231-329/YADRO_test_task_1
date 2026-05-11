@@ -15,8 +15,19 @@ void Vertex::addNeighbour(Vertex& vrtx) {
     addNeighbour(&vrtx);
 }
 
+Vertex* Vertex::getNeighbourPtr(int id) {
+    if (!_neighbours_ptrs.contains(id)) {
+        return nullptr;
+    }
+    return _neighbours_ptrs[id];
+}
+
 int Vertex::getID() {
     return _id;
+}
+
+Vertex::~Vertex() {
+    VertexManager::getInstance().removeVertex(_id);
 }
 
 VertexManager& VertexManager::getInstance() {
@@ -48,7 +59,7 @@ bool VertexManager::removeVertex(int id) {
     return true;
 }
 
-Vertex* VertexManager::getVertex(int id) {
+Vertex* VertexManager::getVertexPtr(int id) {
     if (!exists(id)) {
         return nullptr;
     }
