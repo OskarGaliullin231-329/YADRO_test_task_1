@@ -25,11 +25,12 @@ public:
         virtual bool perform() = 0;
         virtual std::string stringify() = 0;
     protected:
+        Action(ActingBot* bt) { _bt = bt; }
         ActingBot* _bt;
     };
     class Go: public Action {
     public:
-        Go(int id): _id(id) {} 
+        Go(ActingBot* bt, int id): Action(bt), _id(id) {} 
         bool perform() override;
         std::string stringify() override;
     private:
@@ -43,7 +44,7 @@ public:
             Gems,
             Exp
         };
-        Collect(Resource resource): _resource(resource) {}
+        Collect(ActingBot* bt, Resource resource): Action(bt), _resource(resource) {}
         bool perform() override;
         std::string stringify() override;
     private:
