@@ -2,7 +2,7 @@ CXX = g++
 
 CXXFLAGS = -Wall -Werror -Wextra -I include
 
-SRCS = src/Bot.cpp src/Vertex.cpp src/Rooms.cpp src/Strategy.cpp
+SRCS = src/Bot.cpp src/Rooms.cpp src/Strategy.cpp src/Vertex.cpp
 
 OBJS = $(SRCS:src/%.cpp=bin/%.o)
 

@@ -4,23 +4,26 @@
 #include <list>
 
 #include "Bot.h"
-#include "Rooms.h"
+#include "Loger.h"
 
 template <typename T>
 class Strategy {
 public:
-    void perform() {
-        static_cast<T*>(this)->perform();
+    Strategy() {}
+    void perform(ActingBot& bot) {
+        static_cast<T*>(this)->perform(bot);
     }
 
 protected:
-    ActingBot* bot;
-    std::list <ActingBot::Action*> _actions;
+    Loger* _loger;
 };
 
 class AliceStrategy: Strategy<AliceStrategy> {
 public:
-    void perform();
+    void perform(ActingBot&);
+
+private:
+    Resource _prefered_res;
 };
 
 #endif // STRATEGY_H_

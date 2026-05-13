@@ -8,7 +8,10 @@ public:
     Vertex(int id);
     void addNeighbour(Vertex&);
     Vertex* getNeighbourPtr(int);
-    int getID();
+    Vertex* getLeastIDNeibourPtr() const;
+    auto getNeighboursIter() const { return _neighbours_ptrs.begin(); }
+    auto getNeighboursEnd()  const { return _neighbours_ptrs.end(); }
+    int getID() const;
     ~Vertex();
 
 private:

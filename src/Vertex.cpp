@@ -22,7 +22,14 @@ Vertex* Vertex::getNeighbourPtr(int id) {
     return _neighbours_ptrs[id];
 }
 
-int Vertex::getID() {
+Vertex* Vertex::getLeastIDNeibourPtr() const {
+    if (_neighbours_ptrs.empty()) {
+        return nullptr;
+    }
+    return _neighbours_ptrs.begin()->second;
+}
+
+int Vertex::getID() const {
     return _id;
 }
 
