@@ -21,6 +21,7 @@ bool Bot::moveToRoom(int id) {
     }
     static_cast<Room*>(_curr_room)->visited() = true;
     _curr_room = _curr_room->getNeighbourPtr(id);
+    _visible_rooms_ptrs.erase(_curr_room->getID());
     for (auto neighbour = _curr_room->getNeighboursIter(); neighbour != _curr_room->getNeighboursEnd(); neighbour++) {
         _visible_rooms_ptrs[neighbour->first] = (neighbour->second);
     }

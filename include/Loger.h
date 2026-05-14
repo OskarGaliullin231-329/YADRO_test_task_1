@@ -32,6 +32,7 @@ public:
     void addEvent(const Event& event) { _event_list.push_back(event); }
     auto eventListStart() { return _event_list.begin(); }
     auto eventListEnd() { return _event_list.end(); }
+    virtual void showErrorMsg(std::string&) = 0;
 
 protected:
     ActingBot* _bot;

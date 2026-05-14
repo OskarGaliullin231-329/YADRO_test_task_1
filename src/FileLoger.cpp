@@ -1,6 +1,10 @@
 #include "../include/FileLoger.h"
 
-bool FileLoger::write(std::ofstream& file) {
+FileLoger::FileLoger(std::string file_name) {
+    file.open(file_name);
+}
+
+bool FileLoger::write() {
     if (!file.good()) {
         return false;
     }
@@ -10,4 +14,8 @@ bool FileLoger::write(std::ofstream& file) {
     file << "result ";
     file << _bot->getIron() << ' ' << _bot->getGold() << ' ' << _bot->getGems() << ' '<< _bot->getExp() << '\n';
     return true;
+}
+
+void FileLoger::showErrorMsg(std::string& er_msg) {
+    file << er_msg;
 }

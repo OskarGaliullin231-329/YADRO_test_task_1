@@ -24,7 +24,8 @@ enum class Resource {
     Iron,
     Gold,
     Gems,
-    Exp
+    Exp,
+    Err
 };
 
 class ActingBot: public Bot {

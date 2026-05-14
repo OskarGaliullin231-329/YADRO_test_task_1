@@ -20,6 +20,7 @@ protected:
 
 class AliceStrategy: Strategy<AliceStrategy> {
 public:
+    void setPrefResource(Resource);
     void perform(ActingBot&);
 
 private:

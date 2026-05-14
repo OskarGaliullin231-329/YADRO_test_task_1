@@ -2,11 +2,12 @@
 #define VERTEX_H_
 
 #include <map>
+#include <unordered_map>
 
 class Vertex {
 public:
     Vertex(int id);
-    void addNeighbour(Vertex&);
+    bool addNeighbour(Vertex&);
     Vertex* getNeighbourPtr(int);
     Vertex* getLeastIDNeibourPtr() const;
     auto getNeighboursIter() const { return _neighbours_ptrs.begin(); }
@@ -34,7 +35,7 @@ private:
     VertexManager(const VertexManager&) = delete;
     void operator = (const VertexManager&) = delete;
 
-    std::map <int, Vertex*> _vrtxs_ptrs;
+    std::unordered_map <int, Vertex*> _vrtxs_ptrs;
 };
 
 #endif // VERTEX_H_

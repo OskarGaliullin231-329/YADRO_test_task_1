@@ -10,9 +10,13 @@ void Vertex::addNeighbour(Vertex* vrtx) {
     vrtx->_neighbours_ptrs[_id] = this;
 }
 
-void Vertex::addNeighbour(Vertex& vrtx) {
+bool Vertex::addNeighbour(Vertex& vrtx) {
+    if (vrtx._id == _id) {
+        return false;
+    }
     _neighbours_ptrs[vrtx._id] = &vrtx;
     addNeighbour(&vrtx);
+    return true;
 }
 
 Vertex* Vertex::getNeighbourPtr(int id) {
@@ -25,6 +29,11 @@ Vertex* Vertex::getNeighbourPtr(int id) {
 Vertex* Vertex::getLeastIDNeibourPtr() const {
     if (_neighbours_ptrs.empty()) {
         return nullptr;
+    }
+    if (_neighbours_ptrs.begin()->first == 0) {
+        auto iter = _neighbours_ptrs.begin();
+        iter++;
+        return iter->second;
     }
     return _neighbours_ptrs.begin()->second;
 }
